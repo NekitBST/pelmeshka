@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <title>Пельмешка Хы – официальный сайт мемного пельменя</title>
+    <meta name="description" content="Кто не жмакнул тот много потерял. Тот самый мем про пельмени." />
+
+    <meta property="og:title" content="Пельмешка Хы – пельмень с яйцами" />
+    <meta property="og:description" content="Пельмешка Хы – мемный пельмень. Жмакай, крути, верти, кушай." />
+    <meta property="og:image" content="https://pelmeshka.tech/pelmeshka.jpg" />
+    <meta property="og:url" content="https://pelmeshka.tech/" />
+    <meta property="og:type" content="website" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
+
+    <!-- Yandex.Metrika -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        "script",
+        "https://mc.yandex.ru/metrika/tag.js?id=106953451",
+        "ym"
+      );
+      ym(106953451, "init", {
+        ssr: true,
+        webvisor: true,
+        clickmap: true,
+        ecommerce: "dataLayer",
+        referrer: document.referrer,
+        url: location.href,
+        accurateTrackBounce: true,
+        trackLinks: true,
+      });
+    </script>
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/106953451"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1"></script>
+
+    <style>
+      #secret {
+        display: none;
+        animation: rainbow 2s linear infinite;
+      }
+      @keyframes rainbow {
+        0% {
+          color: red;
+        }
+        17% {
+          color: orange;
+        }
+        34% {
+          color: yellow;
+        }
+        51% {
+          color: green;
+        }
+        68% {
+          color: blue;
+        }
+        85% {
+          color: indigo;
+        }
+        100% {
+          color: violet;
+        }
+      }
+    </style>
+    <!-- фон станет розовым, как твои щёчки после третьей за здоровье -->
+  </head>
+  <body
+    class="bg-amber-50 text-stone-800 font-sans antialiased overflow-x-hidden min-h-screen flex flex-col"
+  >
+    <main class="flex-grow max-w-full overflow-hidden">
+      <div
+        class="container max-w-4xl mx-auto px-4 py-6 bg-white/80 backdrop-blur-sm rounded-[60px] shadow-2xl my-6 border-2 border-amber-200"
+      >
+        <h1
+          class="text-5xl sm:text-6xl md:text-7xl font-black text-amber-800 drop-shadow-[4px_4px_0_#ffb38b] mb-2 text-center"
+        >
+          🥟 Пельмешка Хы 🥟
+        </h1>
+        <p class="text-xl sm:text-2xl text-amber-700 italic mb-8 text-center">
+          — официальный сайт пельменя, который видел жизнь —
+        </p>
+
+        <div class="flex justify-center my-6">
+          <img
+            id="pelmeshka"
+            src="pelmeshka.jpg"
+            alt="Пельмешка Хы – мемный пельмень"
+            class="w-full max-w-md cursor-pointer drop-shadow-2xl hover:drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)] rounded-full relative z-10"
+          />
+        </div>
+
+        <div
+          id="annoyMessage"
+          class="relative hidden mx-auto bg-amber-800 text-white text-lg sm:text-xl p-4 rounded-[40px] rounded-bl-none max-w-[300px] sm:max-w-md shadow-[0_8px_0_#1f140e] border-2 border-amber-300 before:content-[''] before:absolute before:left-6 before:-bottom-3 before:border-8 before:border-transparent before:border-t-amber-800 before:border-b-0"
+        >
+          эээ..... надоел ты меня уже крутить. Мб по пельменям?
+        </div>
+
+        <div
+          class="bg-amber-100 border-4 border-amber-700 rounded-full py-3 px-6 sm:py-4 sm:px-8 inline-block shadow-[0_8px_0_#b35e2e] my-6 text-center w-auto"
+        >
+          <span class="text-lg sm:text-2xl">На пельмешку тыкнули</span>
+          <span
+            id="clickCounter"
+            class="text-4xl sm:text-5xl font-bold text-amber-800 mx-2"
+            >0</span
+          >
+          <span class="text-lg sm:text-2xl">раз</span>
+          <div
+            id="counterComment"
+            class="text-base sm:text-lg text-stone-600 mt-2"
+          >
+            Жмакай
+          </div>
+        </div>
+
+        <div
+          id="secret"
+          class="hidden text-2xl sm:text-3xl my-1 p-1 bg-amber-50 rounded-[40px] border-4 border-dashed border-amber-400 max-w-md mx-auto cursor-pointer text-center"
+        >
+          🎉опа пошла маза🥟
+        </div>
+
+        <div
+          class="bg-amber-50 border-4 border-amber-300 rounded-[40px] p-6 sm:p-8 shadow-[0_8px_0_#cfa776] my-8 text-left"
+        >
+          <p class="text-lg sm:text-xl mb-4">
+            Ну привет. Я Пельмешка Хы — тот самый пельмень из пикселей, который ты заслужил после литрушечки в 3 ночи.
+          </p>
+          <p class="text-lg sm:text-xl">
+            Любишь пельмени? Или просто пришёл поглазеть на вращающийся углевод?
+          </p>
+        </div>
+        <p class="text-center text-lg sm:text-xl mb-4">🔥 Скинь другу пусть тоже тыкает</p>
+        <div class="flex flex-wrap gap-4 justify-center mt-12">
+          <a
+            href="https://t.me/share/url?url=https://pelmeshka.tech&text=Чекни%20пельмешку"
+            target="_blank"
+            class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-[0_5px_0_#5a3a1e] transition-all hover:-translate-y-0.5 active:translate-y-1 text-lg sm:text-xl flex items-center gap-2"
+            >📩 Telegram</a
+          >
+          <a
+            href="https://vk.com/share.php?url=https://pelmeshka.tech"
+            target="_blank"
+            class="bg-amber-700 hover:bg-amber-800 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-[0_5px_0_#5a3a1e] transition-all hover:-translate-y-0.5 active:translate-y-1 text-lg sm:text-xl flex items-center gap-2"
+            >📢 VK</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <footer class="relative h-20 overflow-visible">
+      <div class="absolute bottom-0 right-4 flex flex-col items-end gap-1">
+        <span class="text-black text-xs sm:text-sm font-bold">
+          а я за тобой наблюдаю, ХЫ
+        </span>
+        <div class="w-12">
+          <img src="pelmeshka.jpg" alt="" class="w-full rounded-full" />
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        let totalClicks = 0;
+        let annoyTimer = null;
+        let quickClickCount = 0;
+        let quickTimer = null;
+
+        let angle = 0;
+        let velocity = 0;
+        const friction = 0.985;
+        const impulse = 8;
+        const maxVelocity = 60;
+        let animationFrame = null;
+
+        const pelmeshka = document.getElementById("pelmeshka");
+        const secretDiv = document.getElementById("secret");
+        const counterSpan = document.getElementById("clickCounter");
+        const counterComment = document.getElementById("counterComment");
+        const annoyMessage = document.getElementById("annoyMessage");
+        const body = document.body;
+
+        function updateComment(clicks) {
+          if (clicks < 10) counterComment.textContent = "Жмакай, жмакай";
+          else if (clicks < 30)
+            counterComment.textContent = "Ого, уже неплохо нажмакал";
+          else if (clicks < 50)
+            counterComment.textContent = "Ахах, на скок тебя хватит?";
+          else if (clicks < 70)
+            counterComment.textContent = "Мда.. видно тебе нечем заняться";
+          else if (clicks < 100)
+            counterComment.textContent = "Соточку то апнешь?";
+          else if (clicks < 120)
+            counterComment.textContent = "Ну круто чё, докрутил";
+          else if (clicks < 999)
+            counterComment.textContent = "Слабо слабо давай косарик";
+          else counterComment.textContent = "🤔 1к? Выйди отсюда";
+        }
+
+        function showAnnoyMessage() {
+          annoyMessage.classList.remove("hidden");
+          if (annoyTimer) clearTimeout(annoyTimer);
+          annoyTimer = setTimeout(() => {
+            annoyMessage.classList.add("hidden");
+            annoyTimer = null;
+          }, 3000);
+        }
+
+        function boomConfetti() {
+          confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+          confetti({
+            particleCount: 50,
+            spread: 100,
+            origin: { y: 0.5, x: 0.2 },
+            colors: ["#ffb38b", "#d2691e"],
+          });
+          confetti({
+            particleCount: 50,
+            spread: 100,
+            origin: { y: 0.5, x: 0.8 },
+            colors: ["#f7b731", "#b35e2e"],
+          });
+        }
+
+        function startPelmenRain() {
+          for (let i = 0; i < 30; i++) {
+            let pel = document.createElement("div");
+            pel.style.position = "fixed";
+            pel.style.left = Math.random() * 100 + "%";
+            pel.style.top = "-50px";
+            pel.style.fontSize = 20 + Math.random() * 30 + "px";
+            pel.style.pointerEvents = "none";
+            pel.style.zIndex = 9999;
+            pel.style.transition = "top 2s linear, opacity 1s";
+            document.body.appendChild(pel);
+            setTimeout(() => {
+              pel.style.top = "110%";
+              pel.style.opacity = "0";
+            }, 10);
+            setTimeout(() => pel.remove(), 2000);
+          }
+        }
+
+        function rotate() {
+          angle += velocity;
+          pelmeshka.style.transform = `rotate(${angle}deg)`;
+          velocity *= friction;
+
+          if (Math.abs(velocity) < 0.01) {
+            if (animationFrame) {
+              cancelAnimationFrame(animationFrame);
+              animationFrame = null;
+            }
+            return;
+          }
+          animationFrame = requestAnimationFrame(rotate);
+        }
+
+        function startRotation() {
+          if (!animationFrame) {
+            animationFrame = requestAnimationFrame(rotate);
+          }
+        }
+
+        pelmeshka.addEventListener("click", function () {
+          totalClicks++;
+          counterSpan.textContent = totalClicks;
+          updateComment(totalClicks);
+          body.style.backgroundColor = "#ffe0f0";
+          secretDiv.style.display = "block";
+
+          if (totalClicks > 5) showAnnoyMessage();
+
+          velocity = Math.min(velocity + impulse, maxVelocity);
+          startRotation();
+
+          quickClickCount++;
+          if (quickTimer) clearTimeout(quickTimer);
+          quickTimer = setTimeout(() => (quickClickCount = 0), 500);
+          if (quickClickCount === 5) {
+            startPelmenRain();
+            boomConfetti();
+            quickClickCount = 0;
+          }
+        });
+
+        secretDiv.addEventListener("click", function () {
+          secretDiv.style.display = "none";
+        });
+      })();
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Пельмешка Хы – официальный сайт пельменя",
+        "description": ":Жмакай пельмешку. Мемный пельмень для поднятия настроения.",
+        "image": "https://pelmeshka.tech/pelmeshka.jpg",
+        "url": "https://pelmeshka.tech/"
+      }
+    </script>
+  </body>
+</html>
